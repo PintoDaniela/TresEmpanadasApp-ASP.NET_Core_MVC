@@ -1,0 +1,44 @@
+﻿@using Shared.DTOs;
+@model UserDto
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="d-flex justify-content-around align-items-center bg-black text-white">
+    <h1>Login</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <p>
+            <h4>Log in to your account</h4>
+        </p>
+        @if (TempData["Error"] != null)
+        {
+            <div class="col-md-12 alert alert-danger">
+                <span><b>Sorry!</b> - @TempData["Error"]</span>
+            </div>
+        }
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Login" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="UserName" class="control-label"></label>
+                        <input asp-for="UserName" class="form-control">
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-outline-success float right" type="submit" value="Log in" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
