@@ -44,7 +44,7 @@ namespace RataEmpanada.Controllers
 
                 if (!string.IsNullOrEmpty(respuestaPedido))
                 {
-                    return View("PedidoExitoso", respuestaPedido);
+                    return View("../Home/Index");
                 }
                 else
                 {
