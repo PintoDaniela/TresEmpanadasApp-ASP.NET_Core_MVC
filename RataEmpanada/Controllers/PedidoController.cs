@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RataEmpanada.Interfaces;
 using Shared.DTOs;
+using System.Security.Claims;
 
 namespace RataEmpanada.Controllers
 {
@@ -23,17 +24,21 @@ namespace RataEmpanada.Controllers
         [HttpPost]
         public async Task<IActionResult> HacerPedido(List<DetallePedidoDto> pedidoItems)
         {
-            if (ModelState.IsValid)
+            var itemsSeleccionados = pedidoItems
+                .Where(item => !string.IsNullOrEmpty(item.Empanada) && item.Cantidad >= 1)
+                .ToList();
+            if (itemsSeleccionados.Count > 0)
             {
-                var userName = User.Identity.Name;
-
+                
+                var userName = HttpContext.Session.GetString("UserName");
+                var token = HttpContext.Session.GetString("Token");
                 var pedidoDto = new PedidoDto
                 {
                     NombreUsuario = userName,
-                    Pedido = pedidoItems
+                    Pedido = itemsSeleccionados
                 };
 
-                var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+                //var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
 
                 var respuestaPedido = await _pedidoRepository.RealizarPedido(userName, pedidoDto, token);
 
