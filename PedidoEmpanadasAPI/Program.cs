@@ -54,8 +54,8 @@ builder.Services.AddSwaggerGen(c =>
     //Configuración de título y descripción de la API;
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Web API - Tres Empanadas",
-        Description = "Con tu pedido te llevás una empanada de rata-hamburguesa de regalo.",
+        Title = "Web API - Pedido Empanadas",
+        Description = "Api para armar pedido de empanadas.",
         Version = "v1",
         Contact = new OpenApiContact
         {

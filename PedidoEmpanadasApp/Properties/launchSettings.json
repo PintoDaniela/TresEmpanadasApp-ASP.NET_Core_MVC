@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "RataEmpanada": {
+    "PedidoEmpanadas": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
