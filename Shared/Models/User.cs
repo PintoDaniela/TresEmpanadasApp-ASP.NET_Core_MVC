@@ -8,5 +8,6 @@
         public byte[] PasswordSalt { get; set; }
         public bool Status { get; set; }
         public DateTime FechaAlta { get; set; }
+        public ICollection<Pedido> Pedidos { get; set; }
     }
 }
