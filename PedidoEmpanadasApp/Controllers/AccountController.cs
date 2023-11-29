@@ -33,6 +33,7 @@ namespace PedidoEmpanadasApp.Controllers
         public async Task<IActionResult> Login(UserDto user)
         {
             var token = await _accountRepository.LoginAsync(user);
+
             
             JsonDocument jsonDocument = JsonDocument.Parse(token);
 
@@ -43,6 +44,7 @@ namespace PedidoEmpanadasApp.Controllers
             }
 
             if (!string.IsNullOrEmpty(tokenValue))
+
             {
                 HttpContext.Session.SetString("UserName", user.UserName);
                 HttpContext.Session.SetString("Token", tokenValue);

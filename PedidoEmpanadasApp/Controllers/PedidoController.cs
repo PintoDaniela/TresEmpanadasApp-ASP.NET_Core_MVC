@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PedidoEmpanadasApp.Interfaces;
 using Shared.DTOs;
+using System.Security.Claims;
 
 namespace PedidoEmpanadasApp.Controllers
 {
@@ -28,14 +29,18 @@ namespace PedidoEmpanadasApp.Controllers
                 .ToList();
             if (itemsSeleccionados.Count > 0)
             {
+
                 //Consulto los valores de las variables de sesión "UserName" y "Token" que creé en el login. 
+
                 var userName = HttpContext.Session.GetString("UserName");
                 var token = HttpContext.Session.GetString("Token");
                 var pedidoDto = new PedidoDto
                 {
                     NombreUsuario = userName,
                     Pedido = itemsSeleccionados
+
                 };               
+
 
                 var respuestaPedido = await _pedidoRepository.RealizarPedido(userName, pedidoDto, token);
 
