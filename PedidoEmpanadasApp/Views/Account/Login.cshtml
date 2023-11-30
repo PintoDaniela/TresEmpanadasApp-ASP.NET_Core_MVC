@@ -5,15 +5,12 @@
     ViewData["Title"] = "Login";
 }
 
-<div class="d-flex justify-content-around align-items-center bg-black text-white">
-    <h1>Login</h1>
+<div class="d-flex justify-content-around align-items-center bg-black text-white" style="padding:20px; margin-bottom:20px">
+    <h1>Ingresá a tu cuenta</h1>
 </div>
 
 <div class="row">
-    <div class="col-md-6 offset-3">
-        <p>
-            <h4>Log in to your account</h4>
-        </p>
+    <div class="col-md-6 offset-3">       
         @if (TempData["Error"] != null)
         {
             <div class="col-md-12 alert alert-danger">

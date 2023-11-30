@@ -1,7 +1,5 @@
 ﻿@model Shared.DTOs.DetallePedidoDto
 
-<h2>Hacer Pedido</h2>
-
 @{
     var opcionesGustos = new List<string>
     {
@@ -24,22 +22,25 @@
         "RG - Rata Gourmet"
     };
 }
+<div class="d-flex justify-content-around align-items-center bg-black text-white" style="padding:20px; margin-bottom:20px">
+    <h2>Hacé tu pedido</h2>
+</div>
 
 
 @using (Html.BeginForm("RealizarPedido", "Pedido", FormMethod.Post))
 {
-    <div>
-        <h3>Gustos de Empanada</h3>
-
+    <div>        
         @for (int i = 0; i < opcionesGustos.Count; i++)
         {
-            <div>
+            <div class="lista-pedido row justify-content-md-center">
                 @Html.Hidden("PedidoItems[" + i + "].Empanada", opcionesGustos[i])
-                <label>
+                <label class="col-4">
                     @opcionesGustos[i]
+                </label>
+                <label class="col-4">
                     Cantidad:
                     @*<input type="number" name="PedidoItems[@i].Empanada" value="@opcionesGustos[i]" style="display: none;" />*@
-                    <input type="number" name="PedidoItems[@i].Cantidad" min="0" />
+                    <input type="number" name="PedidoItems[@i].Cantidad" min="0" value="0"/>
                 </label>
             </div>
         }

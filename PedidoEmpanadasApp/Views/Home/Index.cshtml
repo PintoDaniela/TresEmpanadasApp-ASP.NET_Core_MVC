@@ -1,8 +1,30 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@{
+    var userName = Context.Session.GetString("UserName");
+    var token = Context.Session.GetString("Token");
+}
 
 <div class="text-center">
-    <h1 class="display-4">...</h1>    
+    @if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(token))
+    {
+        <h1 class="display-4">¡Hola! <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Iniciá sesión</a> para hacer tu pedido.</h1>
+    }
+    else
+    {
+        <h1 class="display-4">¡Hola @userName!</h1>
+        <div class="list-group">
+            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Pedido" asp-action="RealizarPedido"><iconify-icon icon="emojione:shopping-bags"></iconify-icon> Quiero hacer mi pedido</a>
+            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Account" asp-action="Logout"><iconify-icon icon="fa:thumbs-o-up"></iconify-icon> Sólo pasaba por aquí</a>
+        </div>
+        <ul class="navbar-nav flex-grow-1">
+       
+            <li class="nav-item">
+                
+            </li
+    </ul>
+    }
+
     <!--<img src="https://pbs.twimg.com/tweet_video_thumb/Ez0deJgXEAA5Vkn.jpg">-->
 </div>
