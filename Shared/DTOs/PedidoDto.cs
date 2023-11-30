@@ -3,6 +3,6 @@
     public class PedidoDto
     {
         public string NombreUsuario { get; set; }
-        public List<DetallePedidoDto> Pedido { get; set; }
+        public List<DetallePedidoDto> Pedido { get; set; } = new List<DetallePedidoDto>();
     }
 }

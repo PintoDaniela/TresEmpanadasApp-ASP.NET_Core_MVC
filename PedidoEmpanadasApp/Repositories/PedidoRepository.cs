@@ -16,6 +16,7 @@ namespace PedidoEmpanadasApp.Repositories
             _baseUrl = configuration["ApiSetting:baseUrl"];
         }
 
+
         public async Task<string> RealizarPedido(string userName, PedidoDto pedido, string token)
         {
             var pedidoUrl = $"{_baseUrl}/api/Pedido";
@@ -37,6 +38,12 @@ namespace PedidoEmpanadasApp.Repositories
 
             // Manejar el error según sea necesario
             return null;
+        }
+
+
+        public Task<PedidoDto> MostrarPedido(PedidoDto pedido)
+        {
+            throw new NotImplementedException();
         }
     }
 }
