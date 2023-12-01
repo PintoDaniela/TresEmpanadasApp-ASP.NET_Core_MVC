@@ -31,7 +31,6 @@ namespace PedidoEmpanadasApp.Controllers
             {
 
                 //Consulto los valores de las variables de sesión "UserName" y "Token" que creé en el login. 
-
                 var userName = HttpContext.Session.GetString("UserName");
                 var token = HttpContext.Session.GetString("Token");
                 var pedidoDto = new PedidoDto
@@ -39,21 +38,33 @@ namespace PedidoEmpanadasApp.Controllers
                     NombreUsuario = userName,
                     Pedido = itemsSeleccionados
 
-                };               
-
+                };
 
                 var respuestaPedido = await _pedidoRepository.RealizarPedido(userName, pedidoDto, token);
 
                 if (!string.IsNullOrEmpty(respuestaPedido))
                 {
-                    return View("../Home/Index");
+                    if(respuestaPedido == "Ok")
+                    {
+                        return RedirectToAction("MostrarPedido", "Pedido");
+                    }
+                    if (respuestaPedido == "400")
+                    {
+                        ModelState.AddModelError(string.Empty, "Ya hiciste tu pedido el día de hoy.");
+                    }                       
                 }
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Error al realizar el pedido");
-                }
+                }                
             }
-            return View("../Account/Login");
+            return View("../Home/Index");
+        }
+
+        [HttpGet]
+        public IActionResult MostrarPedido()
+        {
+            return View();
         }
     }
 }

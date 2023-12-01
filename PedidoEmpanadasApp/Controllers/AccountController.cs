@@ -34,6 +34,11 @@ namespace PedidoEmpanadasApp.Controllers
         {
             var token = await _accountRepository.LoginAsync(user);
 
+            if (token == null)
+            {
+                TempData["Error"] = "Credenciales inválidas";
+                return RedirectToAction("Login");
+            }
             
             JsonDocument jsonDocument = JsonDocument.Parse(token);
 

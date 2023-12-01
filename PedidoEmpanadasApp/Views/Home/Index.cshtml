@@ -9,21 +9,31 @@
 <div class="text-center">
     @if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(token))
     {
-        <h1 class="display-4">¡Hola! <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Iniciá sesión</a> para hacer tu pedido.</h1>
+        <h1 class="display-4">¡Hola!</h1>
+        <p><a asp-area="" asp-controller="Account" asp-action="Login">Iniciá sesión</a> para hacer tu pedido.</p>
     }
     else
     {
         <h1 class="display-4">¡Hola @userName!</h1>
+        @if (TempData["Error"] != null)
+        {
+            <div class="col-md-12 alert alert-danger">
+                <span><b>Sorrrry!</b> - @TempData["Error"]</span>
+            </div>
+        }
         <div class="list-group">
             <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Pedido" asp-action="RealizarPedido"><iconify-icon icon="emojione:shopping-bags"></iconify-icon> Quiero hacer mi pedido</a>
             <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Account" asp-action="Logout"><iconify-icon icon="fa:thumbs-o-up"></iconify-icon> Sólo pasaba por aquí</a>
         </div>
-        <ul class="navbar-nav flex-grow-1">
-       
-            <li class="nav-item">
-                
-            </li
-    </ul>
+
+        <div asp-validation-summary="ModelOnly" class="text-danger" style="font-size:larger;"></div>
+        @*@if(ValidationSummary.ModelOnly. > 0)
+        {
+            <div>
+                <img src="https://media.tenor.com/zv7Jji1mY3kAAAAC/sus-fry.gif height="373" width="498">
+            </div>
+        }*@
+        
     }
 
     <!--<img src="https://pbs.twimg.com/tweet_video_thumb/Ez0deJgXEAA5Vkn.jpg">-->

@@ -31,12 +31,17 @@ namespace PedidoEmpanadasApp.Repositories
             var response = await _httpClient.PostAsync(pedidoUrl, dataPedido);
 
             if (response.IsSuccessStatusCode)
+            {                
+                return "Ok";
+            }
+            if(response.StatusCode == System.Net.HttpStatusCode.BadRequest)
             {
                 var respuestaPedido = await response.Content.ReadAsStringAsync();
-                return respuestaPedido;
-            }
-
-            // Manejar el error según sea necesario
+                if(respuestaPedido.Contains("Ya hiciste tu pedido"))
+                {
+                    return "400";
+                }                
+            }            
             return null;
         }
 
