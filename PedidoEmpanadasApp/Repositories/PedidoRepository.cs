@@ -1,5 +1,6 @@
 ﻿using PedidoEmpanadasApp.Interfaces;
 using Shared.DTOs;
+using Shared.Models;
 using System.Text;
 using System.Text.Json;
 
@@ -24,7 +25,7 @@ namespace PedidoEmpanadasApp.Repositories
             // Agregar el token al header de la solicitud
             _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-            // Puedes serializar el objeto PedidoDto directamente
+            
             var jsonPedido = JsonSerializer.Serialize(pedido);
             var dataPedido = new StringContent(jsonPedido, Encoding.UTF8, "application/json");
 
@@ -46,9 +47,29 @@ namespace PedidoEmpanadasApp.Repositories
         }
 
 
-        public Task<PedidoDto> MostrarPedido(PedidoDto pedido)
+        public async Task<PedidoDto> MostrarPedido(string userName, string token)
         {
-            throw new NotImplementedException();
+            var pedidoUrl = $"{_baseUrl}/api/Pedido?nombreUsuario={userName}";
+           
+            _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                        
+            var response = await _httpClient.GetAsync(pedidoUrl);
+
+            if (response.IsSuccessStatusCode)
+            {                
+                var contenido = await response.Content.ReadAsStringAsync();
+                var pedido = JsonSerializer.Deserialize<PedidoDto>(contenido);
+
+                return pedido;
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {                
+                return null;
+            }
+            else
+            {                
+                return null;
+            }
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using PedidoEmpanadasApp.Interfaces;
 using Shared.DTOs;
+using Shared.Models;
 using System.Security.Claims;
 
 namespace PedidoEmpanadasApp.Controllers
@@ -46,7 +48,7 @@ namespace PedidoEmpanadasApp.Controllers
                 {
                     if(respuestaPedido == "Ok")
                     {
-                        return RedirectToAction("MostrarPedido", "Pedido");
+                        return RedirectToAction("MostrarPedido", pedidoDto);
                     }
                     if (respuestaPedido == "400")
                     {
@@ -62,9 +64,24 @@ namespace PedidoEmpanadasApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult MostrarPedido()
+        public async Task<IActionResult> MostrarPedido()
         {
-            return View();
+            var userName = HttpContext.Session.GetString("UserName");
+            var token = HttpContext.Session.GetString("Token");
+            var pedido = await _pedidoRepository.MostrarPedido(userName, token);
+
+            if (pedido == null)
+            {
+                return View(pedido);
+            }
+
+            return View(pedido);
+        }
+
+        [HttpGet]
+        public IActionResult ConfirmacionPedido(PedidoDto pedidoDto)
+        {   
+            return View(pedidoDto);
         }
     }
 }

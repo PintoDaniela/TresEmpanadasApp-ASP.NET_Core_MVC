@@ -1,0 +1,36 @@
+﻿@using Shared.DTOs
+@model PedidoDto
+@{
+    ViewData["Title"] = "Mostrar Pedido";
+}
+@{
+    var userName = Context.Session.GetString("UserName");
+    var token = Context.Session.GetString("Token");
+}
+
+
+<div class="text-center">
+    @if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(token))
+    {
+        <h1 class="display-4">¡Hola!</h1>
+        <p><a asp-area="" asp-controller="Account" asp-action="Login">Iniciá sesión</a> para hacer tu pedido.</p>
+    }
+    else
+    {      
+
+    <div class="card">
+        <div class="card-body">
+            @if (Model == null || Model.Pedido.Count() == 0)
+            {
+                <p>...mmmm parece que que no pediste nada hoy.</p>
+                <img src="https://media.tenor.com/zv7Jji1mY3kAAAAC/sus-fry.gif" height="373" width="498">
+            }
+            else
+            {
+                <h1 class="display-4">¡Gracias, vuelva prontos!</h1>
+                <img src="https://pbs.twimg.com/media/ECmQC6pXoAEpUbC.jpg" height="100">
+            }
+        </div>
+    </div>
+    }
+</div>
