@@ -96,5 +96,30 @@ namespace PedidoEmpanadasApp.Repositories
                 return null;
             }
         }
+
+        public async Task<IEnumerable<PedidoDto>> ListaPedidoPorUsrario(string userName, string token)
+        {
+            var pedidoUrl = $"{_baseUrl}/api/Pedido/ListaPedidoPorUsrario";
+
+            _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            var response = await _httpClient.GetAsync(pedidoUrl);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var contenido = await response.Content.ReadAsStringAsync();
+                var pedido = JsonSerializer.Deserialize<List<PedidoDto>>(contenido);
+
+                return pedido;
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                return null;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

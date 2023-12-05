@@ -93,6 +93,21 @@ namespace PedidoEmpanadasApp.Controllers
 
             return View(pedido);
         }
+        [HttpGet]
+        [Route("ListaPedidoPorUsrario")]
+        public async Task<IActionResult> ListaPedidoPorUsrario()
+        {
+            var userName = HttpContext.Session.GetString("UserName");
+            var token = HttpContext.Session.GetString("Token");
+            var pedido = await _pedidoRepository.ListaPedidoPorUsrario(userName, token);
+
+            if (pedido == null)
+            {
+                return View(pedido);
+            }
+
+            return View(pedido);
+        }
 
         [HttpGet]
         public IActionResult ConfirmacionPedido(PedidoDto pedidoDto)

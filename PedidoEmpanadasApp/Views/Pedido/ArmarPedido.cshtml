@@ -14,38 +14,42 @@
     <h1 class="display-4">¡Hola!</h1>
     <p><a asp-area="" asp-controller="Account" asp-action="Login">Iniciá sesión</a> para ver el resumen del pedido.</p>
 }
-
-@if(Model == null)
+else
 {
-    
+
+    @if (Model == null)
+    {
+
         <div class="row justify-content-center">
             <img src="https://media.tenor.com/lx2WSGRk8bcAAAAC/pulp-fiction-john-travolta.gif" class="card-img-top img-fluid" style="height:auto; width:400px;">
             <div class="card-body text-center">
-                <h5 class="card-title">Aún no hay pedidos el día de hoy...</h5>                
+                <h5 class="card-title">Aún no hay pedidos el día de hoy...</h5>
             </div>
         </div>
-}
-else
-{
-    
-    int cantidadTotal = Model.Sum(m => m.Cantidad);
-    
-    <div class="row justify-content-center">
-        <div class="card" style="width: 70%;">
-            <div class="card-body">
-                <h5 class="card-title">Pedido de hoy  <img src="https://cdn-icons-png.flaticon.com/512/4568/4568728.png" style="height:18px;" /></h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">@DateTime.UtcNow.Day / @DateTime.UtcNow.Month / @DateTime.UtcNow.Year</h6>
-                <ul class="list-group list-group-flush">
-                    @foreach (var item in Model)
-                    {
-                        <li class="list-group-item">@item.Cantidad - @item.Empanada</li>
-                    }
-                </ul>
-                <div class="card-footer">
-                    TOTAL: @cantidadTotal empanadas.
+    }
+    else
+    {
+
+        int cantidadTotal = Model.Sum(m => m.Cantidad);
+
+        <div class="row justify-content-center">
+            <div class="card" style="width: 70%;">
+                <div class="card-body">
+                    <h5 class="card-title">Pedido de hoy  <img src="https://cdn-icons-png.flaticon.com/512/4568/4568728.png" style="height:18px;" /></h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">@DateTime.UtcNow.Day / @DateTime.UtcNow.Month / @DateTime.UtcNow.Year</h6>
+                    <ul class="list-group list-group-flush">
+                        @foreach (var item in Model)
+                        {
+                            <li class="list-group-item">@item.Cantidad - @item.Empanada</li>
+                        }
+                    </ul>
+                    <div class="card-footer">
+                        TOTAL: @cantidadTotal empanadas.
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-}
+    }
 
+
+}

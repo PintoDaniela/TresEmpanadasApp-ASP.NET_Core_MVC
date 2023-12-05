@@ -1,0 +1,48 @@
+﻿@using Shared.DTOs
+@model List<PedidoDto>
+
+@{
+    ViewData["Title"] = "Listado pedidos";
+}
+@{
+    var userName = Context.Session.GetString("UserName");
+    var token = Context.Session.GetString("Token");
+}
+@if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(token))
+{
+    <h1 class="display-4">¡Hola!</h1>
+    <p><a asp-area="" asp-controller="Account" asp-action="Login">Iniciá sesión</a> para ver los detalles del pedido de hoy.</p>
+}
+else{   
+    <div class="container text-center">
+        <h1>Detalles de los Pedidos del día</h1>
+        @if (Model == null)
+        {
+
+            <div class="row justify-content-center">
+                <img src="https://media.tenor.com/lx2WSGRk8bcAAAAC/pulp-fiction-john-travolta.gif" class="card-img-top img-fluid" style="height:auto; width:400px;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Aún no hay pedidos el día de hoy...</h5>
+                </div>
+            </div>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <div class="card" style="width: 300px; height: 500px;">
+                    <div class="card-header">
+                        @item.NombreUsuario
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        @foreach (var detalle in item.Pedido)
+                        {
+                            <li class="list-group-item">@detalle.Empanada - @detalle.Cantidad unidades</li>
+                        }
+                    </ul>
+                </div>
+            }
+        }
+        
+    </div>
+}
