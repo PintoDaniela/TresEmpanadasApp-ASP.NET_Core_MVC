@@ -22,12 +22,15 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between nav-tabs">
                     <ul class="navbar-nav flex-grow-1">
                         @if (!string.IsNullOrEmpty(userName) && !string.IsNullOrEmpty(token))
                         {                           
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Pedido" asp-action="RealizarPedido">Hacer Pedido</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Pedido" asp-action="MostrarPedido">Ver mi Pedido de hoy</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Pedido" asp-action="ArmarPedido">Resumen completo del pedido</a>
