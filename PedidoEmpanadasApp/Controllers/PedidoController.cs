@@ -79,6 +79,22 @@ namespace PedidoEmpanadasApp.Controllers
         }
 
         [HttpGet]
+        [Route("ArmarPedido")]
+        public async Task<IActionResult> ArmarPedido()
+        {
+            var userName = HttpContext.Session.GetString("UserName");
+            var token = HttpContext.Session.GetString("Token");
+            var pedido = await _pedidoRepository.ArmarPedido(userName, token);
+
+            if (pedido == null)
+            {
+                return View(pedido);
+            }
+
+            return View(pedido);
+        }
+
+        [HttpGet]
         public IActionResult ConfirmacionPedido(PedidoDto pedidoDto)
         {   
             return View(pedidoDto);

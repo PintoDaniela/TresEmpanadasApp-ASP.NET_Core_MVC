@@ -22,29 +22,43 @@
         "RG - Rata Gourmet"
     };
 }
-<div class="d-flex justify-content-around align-items-center bg-black text-white" style="padding:20px; margin-bottom:20px">
-    <h2>Hacé tu pedido</h2>
-</div>
 
-
-@using (Html.BeginForm("RealizarPedido", "Pedido", FormMethod.Post))
+@{
+    var userName = Context.Session.GetString("UserName");
+    var token = Context.Session.GetString("Token");
+}
+@if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(token))
 {
-    <div>        
-        @for (int i = 0; i < opcionesGustos.Count; i++)
-        {
-            <div class="lista-pedido row justify-content-md-center">
-                @Html.Hidden("PedidoItems[" + i + "].Empanada", opcionesGustos[i])
-                <label class="col-4">
-                    @opcionesGustos[i]
-                </label>
-                <label class="col-4">
-                    Cantidad:
-                    @*<input type="number" name="PedidoItems[@i].Empanada" value="@opcionesGustos[i]" style="display: none;" />*@
-                    <input type="number" name="PedidoItems[@i].Cantidad" min="0" value="0"/>
-                </label>
-            </div>
-        }
+    <h1 class="display-4">¡Hola!</h1>
+    <p><a asp-area="" asp-controller="Account" asp-action="Login">Iniciá sesión</a> para hacer tu pedido.</p>
+}
+else
+{
+    <div class="d-flex justify-content-around align-items-center bg-black text-white" style="padding:20px; margin-bottom:20px">
+        <h2>Hacé tu pedido</h2>
     </div>
 
-    <input type="submit" value="Realizar Pedido" />
+
+    @using (Html.BeginForm("RealizarPedido", "Pedido", FormMethod.Post))
+    {
+        <div>
+            @for (int i = 0; i < opcionesGustos.Count; i++)
+            {
+                <div class="lista-pedido row justify-content-md-center">
+                    @Html.Hidden("PedidoItems[" + i + "].Empanada", opcionesGustos[i])
+                    <label class="col-4">
+                        @opcionesGustos[i]
+                    </label>
+                    <label class="col-4">
+                        Cantidad:
+                        @*<input type="number" name="PedidoItems[@i].Empanada" value="@opcionesGustos[i]" style="display: none;" />*@
+                        <input type="number" name="PedidoItems[@i].Cantidad" min="0" value="0" />
+                    </label>
+                </div>
+            }
+        </div>
+
+        <input type="submit" value="Realizar Pedido" />
+    }
+
 }

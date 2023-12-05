@@ -15,28 +15,17 @@ namespace PedidoEmpanadasAPI.Repositories
             _appDbContext = appDbContext;
         }
         public async Task<PedidoDto> HacerPedido(PedidoDto pedidoNuevo)
-        {
-            //var pedidoExistenteHoy = BuscarMiPedidoDelDia(pedidoNuevo.NombreUsuario);
-
-            //if (pedidoExistenteHoy != null)
-            //{
-            //    var listaPedidosExistentesHoy = _appDbContext.Pedidos.Where(p => p.User.UserName == pedidoNuevo.NombreUsuario && p.Fecha.Date == DateTime.UtcNow.Date).ToList();
-            //    foreach(var pedido in listaPedidosExistentesHoy)
-            //    {
-            //        _appDbContext.Pedidos.Remove(pedido);
-            //    }
-               
-            //}
+        {           
             var pedidoCompleto = new PedidoDto();
             try
             {
                 var usuario = await _appDbContext.User.FirstOrDefaultAsync(u => u.UserName == pedidoNuevo.NombreUsuario);
-                //int IdUsuario = usuario.Id;
+                
 
                 foreach (var detalle in pedidoNuevo.Pedido)
                 {
                     var empanada = await _appDbContext.Empanadas.FirstOrDefaultAsync(e => e.Gusto == detalle.Empanada);
-                    // int idEmpanada = empanada.Id;
+                    
                     int cantidad = detalle.Cantidad;
 
                     var pedido = new Pedido()
@@ -149,10 +138,10 @@ namespace PedidoEmpanadasAPI.Repositories
                 }
 
                 var pedidoDelDia = pedidosHoy
-                   .GroupBy(p => new { p.Empanada.Id, p.Empanada.Gusto, p.User})
+                   .GroupBy(p => new { p.Empanada.Gusto, p.User.UserName})
                    .Select(g => new
                    {
-                       NombreUsuario = g.Key.User.UserName,
+                       NombreUsuario = g.Key.UserName,
                        Empanada = g.Key.Gusto,
                        Cantidad = g.Sum(p => p.Cantidad)
                    })
@@ -180,7 +169,7 @@ namespace PedidoEmpanadasAPI.Repositories
                         listaPedidos.Add(pedidoUsuario);
 
                         pedidoUsuario = new PedidoDto();
-                        pedidoUsuario.NombreUsuario = pedidoDelDia.First().NombreUsuario;
+                        pedidoUsuario.NombreUsuario = item.NombreUsuario;
 
                         var detalle = new DetallePedidoDto()
                         {

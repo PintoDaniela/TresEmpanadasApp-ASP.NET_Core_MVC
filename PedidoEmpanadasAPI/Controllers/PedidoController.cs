@@ -50,28 +50,30 @@ namespace PedidoEmpanadasAPI.Controllers
             return Ok(resultado);
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> ArmarListaParaHacerPedido()
-        //{
-        //    var resultado = await _pedidoRepository.ArmarPedidoCompletoDelDia();
+        [HttpGet]
+        [Route("ArmarPedido")]
+        public async Task<IActionResult> ArmarListaParaHacerPedido()
+        {
+            var resultado = await _pedidoRepository.ArmarPedidoCompletoDelDia();
 
-        //    if (resultado == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return Ok(resultado);
-        //}
+            if (resultado == null)
+            {
+                return NotFound();
+            }
+            return Ok(resultado);
+        }
 
-        //[HttpGet]
-        //public async Task<IActionResult> ListarPedidosPorUsuario()
-        //{
-        //    var resultado = await _pedidoRepository.ArmarListadoPedidosDelDia();
+        [HttpGet]
+        [Route("ListaPedidoPorUsrario")]
+        public async Task<IActionResult> ListarPedidosPorUsuario()
+        {
+            var resultado = await _pedidoRepository.ArmarListadoPedidosDelDia();
 
-        //    if (resultado == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return Ok(resultado);
-        //}
+            if (resultado == null)
+            {
+                return NotFound();
+            }
+            return Ok(resultado);
+        }
     }
 }
