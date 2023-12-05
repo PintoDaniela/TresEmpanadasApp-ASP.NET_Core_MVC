@@ -17,6 +17,10 @@ body {
   margin-bottom: 60px;
 }
 
-.nav-tabs nav-link{
-    background-color:thistle;
+.nav-tabs .nav-link {
+    background-color: lightskyblue;
+}
+
+.nav-tabs .nav-item {
+    margin-right: 15px;
 }
