@@ -13,7 +13,7 @@
     <h1 class="display-4">¡Hola!</h1>
     <p><a asp-area="" asp-controller="Account" asp-action="Login">Iniciá sesión</a> para ver los detalles del pedido de hoy.</p>
 }
-else{   
+else{
     <div class="container text-center">
         <h1>Detalles de los Pedidos del día</h1>
         @if (Model == null)
@@ -28,20 +28,30 @@ else{
         }
         else
         {
+            <div class="row">
             @foreach (var item in Model)
             {
-                <div class="card" style="width: 300px; height: 500px;">
-                    <div class="card-header">
-                        @item.NombreUsuario
+                <div class="col-md-4">
+                    <div class="card" style="width: 400px; height: 300px; position:relative;">
+                        <div class="card-header">
+                            @item.NombreUsuario
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            @foreach (var detalle in item.Pedido)
+                            {
+                                    <li class="list-group-item">@detalle.Cantidad - @detalle.Empanada</li>
+                            }
+                        </ul>
+                            @{
+                                int cantidadTotal = item.Pedido.Sum(p => p.Cantidad);
+                            }
+                        <div class="card-footer position-absolute bottom-0">
+                            TOTAL: @cantidadTotal empanadas.
+                        </div>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        @foreach (var detalle in item.Pedido)
-                        {
-                            <li class="list-group-item">@detalle.Empanada - @detalle.Cantidad unidades</li>
-                        }
-                    </ul>
                 </div>
             }
+            </div>
         }
         
     </div>

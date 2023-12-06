@@ -22,23 +22,29 @@
         </div>
 
         <div class="card">
-            <div class="card-body">
+            <div class="card-body row">
                 @if (Model == null || Model.Pedido.Count() == 0)
                 {
                     <p>...mmmm parece que que no pediste nada hoy.</p>
                     <img src="https://media.tenor.com/zv7Jji1mY3kAAAAC/sus-fry.gif" height="373" width="498">
                 }
                 else
-                {                   
-                    <h4 class="card-subtitle mb-2 text-body-secondary">Este es tu pedido de hoy</h4>
-                    <ul class="list-group list-group-flush">
-                        @foreach (var item in Model.Pedido)
-                        {
-                            <li class="list-group-item">@item.Cantidad - @item.Empanada</li>
-                        }
-                    </ul>
-                    <h4 class="display-4">¡Gracias, vuelva prontos!</h4>
-                    <img src="https://pbs.twimg.com/media/ECmQC6pXoAEpUbC.jpg" height="400">
+                {    
+                    <div class="col-6">
+                        <h4 class="card-subtitle mb-2 text-body-secondary">Este es tu pedido de hoy</h4>
+                        <ul class="list-group list-group-flush">
+                            @foreach (var item in Model.Pedido)
+                            {
+                                <li class="list-group-item">@item.Cantidad - @item.Empanada</li>
+                            }
+                        </ul>
+                    </div>
+
+                    <div class="col-6">
+                        <h4 class="display-6">¡Gracias, vuelva prontos!</h4>
+                        <img src="https://pbs.twimg.com/media/ECmQC6pXoAEpUbC.jpg" height="400">
+                    </div>
+                    
                 }                       
             </div>
         </div>

@@ -48,7 +48,7 @@ namespace PedidoEmpanadasApp.Controllers
                 {
                     if(respuestaPedido == "Ok")
                     {
-                        return RedirectToAction("MostrarPedido", pedidoDto);
+                        return RedirectToAction("MostrarPedido");
                     }
                     if (respuestaPedido == "400")
                     {
