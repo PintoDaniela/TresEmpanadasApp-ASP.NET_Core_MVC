@@ -14,7 +14,12 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-image: linear-gradient(#F1F3FB, #DCFBF5);
+}
+
+.navbar {
+    background-color: #DCFBF5 !important;
 }
 
 .nav-tabs .nav-link {
@@ -23,4 +28,13 @@ body {
 
 .nav-tabs .nav-item {
     margin-right: 15px;
+}
+
+.cantidades{
+    width: 50px;
+}
+
+footer{
+    position:absolute;
+    bottom:30px;
 }

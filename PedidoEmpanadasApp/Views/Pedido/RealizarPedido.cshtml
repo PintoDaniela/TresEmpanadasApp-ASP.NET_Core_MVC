@@ -52,7 +52,7 @@ else
                     <label class="col-4">
                         Cantidad:
                         @*<input type="number" name="PedidoItems[@i].Empanada" value="@opcionesGustos[i]" style="display: none;" />*@
-                        <input type="number" name="PedidoItems[@i].Cantidad" min="0" value="0" />
+                        <input class="cantidades" type="number" name="PedidoItems[@i].Cantidad" min="0" max="12" value="0" />
                     </label>
                 </div>
             }

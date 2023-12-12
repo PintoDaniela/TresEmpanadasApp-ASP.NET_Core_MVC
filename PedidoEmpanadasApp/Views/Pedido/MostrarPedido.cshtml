@@ -21,12 +21,14 @@
             <h3 class="display-4">Pedido de @userName</h3>           
         </div>
 
-        <div class="card">
-            <div class="card-body row">
+        <div class="card border-0" style="background-color:transparent">
+            <div class="card-body row align-content-center align-items-end justify-content-center border-0" style="background-color:transparent;">
                 @if (Model == null || Model.Pedido.Count() == 0)
                 {
-                    <p>...mmmm parece que que no pediste nada hoy.</p>
-                    <img src="https://media.tenor.com/zv7Jji1mY3kAAAAC/sus-fry.gif" height="373" width="498">
+                    <div class="col-6 align-self-center align-content-center align-items-end justify-content-center">
+                        <p>...mmmm parece que que no pediste nada hoy.</p>
+                        <img style="height:300px; width:auto" src="https://media.tenor.com/zv7Jji1mY3kAAAAC/sus-fry.gif">
+                    </div>
                 }
                 else
                 {    
