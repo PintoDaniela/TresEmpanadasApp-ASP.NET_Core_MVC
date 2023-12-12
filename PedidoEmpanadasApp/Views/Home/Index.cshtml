@@ -6,7 +6,7 @@
     var token = Context.Session.GetString("Token");
 }
 
-<div class="text-center">
+<div class="container text-center align-content-center justify-content-center align-items-center">
     @if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(token))
     {
         <h1 class="display-4">¡Hola!</h1>
@@ -15,19 +15,22 @@
     else
     {
         <h1 class="display-4">¡Hola @userName!</h1>
-        @if (TempData["Error"] != null)
-        {
-            <div class="col-md-12 alert alert-danger">
-                <span><b>Sorrrry!</b> - @TempData["Error"]</span>
+        <div class="row justify-content-center" style="margin-top:20px;">
+            @if (TempData["Error"] != null)
+            {
+                <div class="col-md-12 alert alert-danger">
+                    <span><b>Sorrrry!</b> - @TempData["Error"]</span>
+                </div>
+            }
+            <div class="list-group w-50">
+                <div asp-validation-summary="ModelOnly" class="text-danger alert-danger" style="font-size:larger;"></div>
+                <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Pedido" asp-action="RealizarPedido"><iconify-icon icon="emojione:shopping-bags"></iconify-icon> Quiero hacer mi pedido</a>
+                <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Pedido" asp-action="MostrarPedido"><iconify-icon icon="emojione:shopping-bags"></iconify-icon> Quiero ver mi pedido de hoy</a>
+                <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Account" asp-action="Logout"><iconify-icon icon="fa:thumbs-o-up"></iconify-icon> Sólo pasaba por aquí</a>
             </div>
-        }
-        <div class="list-group">
-            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Pedido" asp-action="RealizarPedido"><iconify-icon icon="emojione:shopping-bags"></iconify-icon> Quiero hacer mi pedido</a>
-            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Pedido" asp-action="MostrarPedido"><iconify-icon icon="emojione:shopping-bags"></iconify-icon> Quiero ver mi pedido de hoy</a>
-            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Account" asp-action="Logout"><iconify-icon icon="fa:thumbs-o-up"></iconify-icon> Sólo pasaba por aquí</a>
+            
         </div>
-
-        <div asp-validation-summary="ModelOnly" class="text-danger" style="font-size:larger;"></div>
+        
         @*@if(ValidationSummary.ModelOnly. > 0)
         {
             <div>

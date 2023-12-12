@@ -38,3 +38,19 @@ footer{
     position:absolute;
     bottom:30px;
 }
+.btn-custom {
+    background-color: #A2BDF7;
+    color:white;
+    margin-top: 5px;
+}
+    .btn-custom:hover {
+        background-color: #83DDCA;
+        color: white;
+    }
+a{
+    text-decoration:none;
+}
+.alert-danger{
+    text-decoration:none;
+    list-style:none !important;
+}

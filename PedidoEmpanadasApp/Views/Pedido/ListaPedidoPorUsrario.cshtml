@@ -36,7 +36,7 @@ else{
                         <div class="card-header">
                             @item.NombreUsuario
                         </div>
-                        <ul class="list-group list-group-flush">
+                        <ul class="list-group list-group-flush text-start">
                             @foreach (var detalle in item.Pedido)
                             {
                                     <li class="list-group-item">@detalle.Cantidad - @detalle.Empanada</li>
