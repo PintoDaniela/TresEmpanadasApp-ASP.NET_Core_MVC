@@ -21,7 +21,7 @@ En principio admite un único pedido por día para cada usuario, dado que está 
 ![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/066c4f06-ad45-42af-a098-c873db1ef12f)
 
 
-### Listado consolidado para hacer el pedido gripal
+### Listado consolidado para hacer el pedido grupal
 ![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/f1f14b6e-f675-4495-9098-774b5c53af93)
 
 
