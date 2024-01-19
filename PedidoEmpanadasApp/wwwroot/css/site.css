@@ -1,56 +1,65 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
     margin-bottom: 60px;
-    background-image: linear-gradient(#F1F3FB, #DCFBF5);
+    background-color: #cce5f7;
 }
 
 .navbar {
-    background-color: #DCFBF5 !important;
+    background-color: #9cade6 !important;
 }
 
 .nav-tabs .nav-link {
-    background-color: lightskyblue;
+    background-color: #5f6d9c;
+    color: white !important;
+}
+
+.nav-tabs a {
+    color: white !important;
 }
 
 .nav-tabs .nav-item {
     margin-right: 15px;
 }
 
-.cantidades{
+.cantidades {
     width: 50px;
 }
 
-footer{
-    position:absolute;
-    bottom:30px;
+footer {
+    position: absolute;
+    bottom: 30px;
 }
+
 .btn-custom {
-    background-color: #A2BDF7;
-    color:white;
+    background-color: #9cade6;
+    color: white;
     margin-top: 5px;
 }
+
     .btn-custom:hover {
-        background-color: #83DDCA;
+        background-color: #5f6d9c;
         color: white;
     }
-a{
-    text-decoration:none;
+
+a {
+    text-decoration: none;
 }
-.alert-danger{
-    text-decoration:none;
-    list-style:none !important;
+
+.alert-danger {
+    text-decoration: none;
+    list-style: none !important;
 }
