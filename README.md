@@ -6,24 +6,31 @@ En principio admite un único pedido por día para cada usuario, dado que está 
 🔐 Se emplea autenticación con JWT Token para poder acceder.</br>
 
 ## Páginas de la App
+### Página de inicio
+![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/6e513314-9ce1-44b1-a62e-784d2090387f)
+
+
 ### Login
-![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/46826b21-4ae0-4601-941d-74d89fafc50b)
+![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/eff1c0a4-3f6e-48d5-ad57-f4556ac19d72)
+
 
 ### Home
-![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/e9609241-035b-41dc-89be-503b5a8f62cf)
+![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/7fdb8026-f9c9-48e4-9d15-a1df9ac50a7c)
+
 
 
 ### Hacer pedido individual
-![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/dbe877f8-3e59-484a-a53d-da014b3daba5)
+![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/4a925f27-7577-4b74-a2a1-20eaa687b93a)
 
 
 ### Confirmación del pedido individual
-![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/066c4f06-ad45-42af-a098-c873db1ef12f)
+![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/e414689b-588b-4cfb-8a9a-a336904d9c27)
 
 
 ### Listado consolidado para hacer el pedido grupal
-![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/f1f14b6e-f675-4495-9098-774b5c53af93)
+![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/a410883e-c836-42c4-88a2-acc832c4baee)
+
 
 
 ### Detalles de qué pidió quién
-![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/f01a1791-c77a-45c4-a3e8-0a062c39291b)
+![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/18def30f-88f2-4b02-8f87-421bba1efbee)
