@@ -7,11 +7,11 @@ En principio admite un único pedido por día para cada usuario, dado que está 
 
 ## Páginas de la App
 ### Página de inicio
-![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/6e513314-9ce1-44b1-a62e-784d2090387f)
+![Screenshot 2024-05-30 185720](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/3256d0e2-06e9-4357-a14c-494a2df399ae)
 
 
 ### Login
-![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/eff1c0a4-3f6e-48d5-ad57-f4556ac19d72)
+![Screenshot 2024-05-30 185733](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/b13d2375-282e-46fd-a94f-fd3f9f71ad9b)
 
 
 ### Home
@@ -20,17 +20,19 @@ En principio admite un único pedido por día para cada usuario, dado que está 
 
 
 ### Hacer pedido individual
-![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/4a925f27-7577-4b74-a2a1-20eaa687b93a)
+![Screenshot 2024-05-30 185748](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/7e72917e-7ef2-47b6-a500-cb2eeea4df05)
 
 
 ### Confirmación del pedido individual
-![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/e414689b-588b-4cfb-8a9a-a336904d9c27)
+![Screenshot 2024-05-30 185939](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/0755ff39-9518-4002-9cb1-7648e0adf8c6)
 
 
 ### Listado consolidado para hacer el pedido grupal
-![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/a410883e-c836-42c4-88a2-acc832c4baee)
+![Screenshot 2024-05-30 190049](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/a2255fe4-25d8-4548-ac5f-ba4b457076f1)
+![Screenshot 2024-05-30 185826](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/9892c0e5-2683-49c6-a9bc-40bcc8b3848d)
+
 
 
 
 ### Detalles de qué pidió quién
-![image](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/18def30f-88f2-4b02-8f87-421bba1efbee)
+![Screenshot 2024-05-30 190118](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/e780c776-eb55-4c1e-8e89-9435caf7a668)
