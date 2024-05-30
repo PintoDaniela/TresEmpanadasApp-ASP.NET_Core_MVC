@@ -18,7 +18,6 @@ En principio admite un único pedido por día para cada usuario, dado que está 
 ![Screenshot 2024-05-30 185748](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/bb7d97f0-06dd-4ba5-9c3b-389ec0429f80)
 
 
-
 ### Hacer pedido individual
 ![Screenshot 2024-05-30 185922](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/95a8625c-4bc0-4591-9d7c-235a3e7e9aa7)
 
@@ -32,7 +31,9 @@ En principio admite un único pedido por día para cada usuario, dado que está 
 ![Screenshot 2024-05-30 185826](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/9892c0e5-2683-49c6-a9bc-40bcc8b3848d)
 
 
-
-
 ### Detalles de qué pidió quién
 ![Screenshot 2024-05-30 190118](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/e780c776-eb55-4c1e-8e89-9435caf7a668)
+
+
+## LA API
+![Screenshot 2024-05-30 185700](https://github.com/PintoDaniela/PedidoEmpanadas-ASP.NET_Core_MVC/assets/102257752/bea4524f-9ae1-450d-8acc-51234000d083)
