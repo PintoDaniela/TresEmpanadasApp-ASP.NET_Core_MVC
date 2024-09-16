@@ -1,3 +1,13 @@
+
+# Application for Group Empanada Orders with ASP.NET Core MVC - Web API 
+It is designed for organizing empanada orders among multiple people.</br>
+Each user can place their individual order, which is then consolidated into a single general list for group purchase.</br>
+Currently, it supports one order per day per user, as it is intended for making lunch orders within a work team.</br>
+
+💻 The application uses a Web API to interact with the database.</br>
+🔐 Authentication is managed with JWT tokens for access.</br>
+</hr>
+
 # Aplicación para armar pedido grupal de Empanadas con ASP.NET Core MVC - Web API
 Está destinada al armado de pedidos para realizar compras de empanadas entre varias personas. </br>
 Permite que cada usuario realice su pedido individual y luego se consolidan los pedidos en un único listado general para efectuar la compra de manera grupal. </br>
