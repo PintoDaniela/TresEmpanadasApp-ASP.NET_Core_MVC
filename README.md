@@ -6,7 +6,8 @@ Currently, it supports one order per day per user, as it is intended for making 
 
 💻 The application uses a Web API to interact with the database.</br>
 🔐 Authentication is managed with JWT tokens for access.</br>
-</hr>
+
+</br><hr></br>
 
 # Aplicación para armar pedido grupal de Empanadas con ASP.NET Core MVC - Web API
 Está destinada al armado de pedidos para realizar compras de empanadas entre varias personas. </br>
